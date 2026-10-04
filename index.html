@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff7e8" />
+  <title>Mi cuerpo suena · Sesión 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell" id="appShell">
+    <header class="topbar" aria-label="Navegación de la sesión">
+      <div class="brand">
+        <span class="brand-kicker">MÚSICA · 1.º PRIMARIA</span>
+        <strong>Mi cuerpo suena</strong>
+      </div>
+      <div class="progress-wrap" aria-label="Progreso de la sesión">
+        <div class="progress-dots" id="progressDots"></div>
+        <span class="progress-count" id="progressCount">1 / 10</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn teacher-btn" id="teacherBtn" type="button" aria-expanded="false" aria-controls="teacherPanel">👩‍🏫 <span>DOCENTE</span></button>
+        <button class="icon-btn" id="fullscreenBtn" type="button">⛶ <span>PANTALLA</span></button>
+      </div>
+    </header>
+
+    <main class="stage" id="stage">
+      <!-- 1 -->
+      <section class="slide active cover-slide" data-slide="0" aria-labelledby="s1-title">
+        <div class="cover-card">
+          <img src="assets/images/portada.png" alt="Niños haciendo música con palmas, muslos, pies y voz" class="hero-img" />
+          <div class="cover-overlay">
+            <p class="eyebrow">SESIÓN 1</p>
+            <h1 id="s1-title">Descubro los sonidos de mi cuerpo</h1>
+            <p class="question">¿Cuántos sonidos podemos hacer con nuestro cuerpo?</p>
+            <button class="primary big" type="button" data-next>▶ COMENZAR</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 -->
+      <section class="slide" data-slide="1" aria-labelledby="s2-title">
+        <div class="lesson-layout calm">
+          <div class="instruction-block">
+            <p class="eyebrow">1 · ESCUCHA</p>
+            <h2 id="s2-title">Escucha tu cuerpo</h2>
+            <div class="three-cues">
+              <button class="cue-card" type="button" data-cue="siente"><span>❤️</span><b>SIENTE</b></button>
+              <button class="cue-card" type="button" data-cue="escucha"><span>👂</span><b>ESCUCHA</b></button>
+              <button class="cue-card" type="button" data-cue="respira"><span>🌬️</span><b>RESPIRA</b></button>
+            </div>
+            <div class="student-prompt" id="bodyPrompt">Pon una mano en el pecho.</div>
+            <div class="binary-actions">
+              <button class="sound-btn sound" type="button" data-state="sound">👏 SONIDO</button>
+              <button class="sound-btn silence" type="button" data-state="silence">🤫 SILENCIO</button>
+            </div>
+          </div>
+          <div class="visual-focus body-listen" id="soundStateVisual">
+            <div class="big-symbol">❤️</div>
+            <p>Escucha lo que pasa dentro y fuera de ti.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 -->
+      <section class="slide" data-slide="2" aria-labelledby="s3-title">
+        <div class="lesson-layout image-right">
+          <div class="instruction-block">
+            <p class="eyebrow">2 · EXPLORAMOS</p>
+            <h2 id="s3-title">¿Qué sonidos esconde mi cuerpo?</h2>
+            <p class="student-prompt">Toca una opción y haz ese sonido.</p>
+            <div class="action-grid four" id="exploreGrid">
+              <button class="action-card pink" type="button" data-action="palmas"><span>👏</span><b>PALMAS</b></button>
+              <button class="action-card green" type="button" data-action="muslos"><span>🦵</span><b>MUSLOS</b></button>
+              <button class="action-card blue" type="button" data-action="pies"><span>👣</span><b>PIES</b></button>
+              <button class="action-card purple" type="button" data-action="voz"><span>👄</span><b>VOZ</b></button>
+            </div>
+            <div class="activity-feedback" id="exploreFeedback">Elige una parte del cuerpo.</div>
+          </div>
+          <figure class="lesson-figure">
+            <img src="assets/images/cuerpo-sonidos.png" alt="Lámina con palmas, muslos, pies y voz" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- 4 -->
+      <section class="slide" data-slide="3" aria-labelledby="s4-title">
+        <div class="centered-lesson">
+          <p class="eyebrow">3 · ATENCIÓN</p>
+          <h2 id="s4-title">Sonido o silencio</h2>
+          <p class="student-prompt">Mira la señal. Hazla… y para cuando aparezca silencio.</p>
+          <div class="signal-grid" id="signalGrid">
+            <button class="signal-card c1" type="button" data-signal="PALMAS" data-emoji="👏" aria-label="Palmas">
+              <img src="assets/images/cards/palmas.png" alt="Niño dando palmas" /><b>PALMAS</b>
+            </button>
+            <button class="signal-card c2" type="button" data-signal="MUSLOS" data-emoji="🦵" aria-label="Muslos">
+              <img src="assets/images/cards/muslos.png" alt="Niño haciendo percusión en los muslos" /><b>MUSLOS</b>
+            </button>
+            <button class="signal-card c3" type="button" data-signal="PIES" data-emoji="👣" aria-label="Pies">
+              <img src="assets/images/cards/pies.png" alt="Niño marcando con los pies" /><b>PIES</b>
+            </button>
+            <button class="signal-card c4" type="button" data-signal="VOZ" data-emoji="👄" aria-label="Voz">
+              <img src="assets/images/cards/voz.png" alt="Niña usando la voz para hacer música" /><b>VOZ</b>
+            </button>
+            <button class="signal-card c5 silence-card" type="button" data-signal="SILENCIO" data-emoji="🤫" aria-label="Silencio">
+              <img src="assets/images/cards/silencio.png" alt="Niño haciendo el gesto de silencio" /><b>SILENCIO</b>
+            </button>
+          </div>
+          <div class="signal-display" id="signalDisplay"><span>👀</span><b>PREPARADOS</b></div>
+        </div>
+      </section>
+
+      <!-- 5 -->
+      <section class="slide" data-slide="4" aria-labelledby="s5-title">
+        <div class="lesson-layout image-left">
+          <figure class="lesson-figure">
+            <img src="assets/images/espejo-sonoro.png" alt="La maestra hace percusión corporal y los niños la imitan" />
+          </figure>
+          <div class="instruction-block">
+            <p class="eyebrow">4 · IMITAMOS</p>
+            <h2 id="s5-title">El espejo sonoro</h2>
+            <div class="verb-row"><span>👀 MIRA</span><span>👂 ESCUCHA</span><span>🪞 IMITA</span></div>
+            <div class="challenge-box" id="mirrorChallenge">👏</div>
+            <button class="primary" id="newMirrorChallenge" type="button">🎲 OTRO RETO</button>
+            <p class="small-note">Primero lo hace la maestra. Después, toda la clase.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6 -->
+      <section class="slide" data-slide="5" aria-labelledby="s6-title">
+        <div class="lesson-layout image-right">
+          <div class="instruction-block">
+            <p class="eyebrow">5 · DIRIGIMOS</p>
+            <h2 id="s6-title">El director del cuerpo</h2>
+            <p class="student-prompt">Elige un sonido. El director decide cuándo empezar y parar.</p>
+            <div class="director-actions" id="directorActions">
+              <button type="button" class="mini-action selected" data-direct="👏" data-name="PALMAS">👏 PALMAS</button>
+              <button type="button" class="mini-action" data-direct="🦵" data-name="MUSLOS">🦵 MUSLOS</button>
+              <button type="button" class="mini-action" data-direct="👣" data-name="PIES">👣 PIES</button>
+              <button type="button" class="mini-action" data-direct="👄" data-name="VOZ">👄 VOZ</button>
+            </div>
+            <div class="start-stop">
+              <button class="start-btn" id="directorStart" type="button">▶ EMPEZAMOS</button>
+              <button class="stop-btn" id="directorStop" type="button">✋ PARAMOS</button>
+            </div>
+            <div class="director-display" id="directorDisplay"><span>👏</span><b>PALMAS · PREPARADOS</b></div>
+          </div>
+          <figure class="lesson-figure">
+            <img src="assets/images/director-cuerpo.png" alt="Niño dirigiendo una actividad de percusión corporal" />
+          </figure>
+        </div>
+      </section>
+
+      <!-- 7 -->
+      <section class="slide" data-slide="6" aria-labelledby="s7-title">
+        <div class="storm-layout">
+          <div class="storm-top">
+            <div>
+              <p class="eyebrow">6 · RETO</p>
+              <h2 id="s7-title">La tormenta del cuerpo</h2>
+            </div>
+            <div class="storm-controls">
+              <button class="primary" id="stormStart" type="button">⛈️ EMPEZAR</button>
+              <button class="secondary" id="stormReset" type="button">↺ REINICIAR</button>
+              <button class="secondary" id="stormAudioToggle" type="button">▶ MÚSICA</button>
+            </div>
+          </div>
+          <img src="assets/images/tormenta-cuerpo.png" alt="La tormenta del cuerpo: cinco niveles de intensidad y silencio final" class="storm-img" />
+          <div class="storm-steps" id="stormSteps">
+            <button type="button" data-step="0">1 <span>🤌</span> DEDOS</button>
+            <button type="button" data-step="1">2 <span>👏</span> PALMAS</button>
+            <button type="button" data-step="2">3 <span>🦵</span> MUSLOS</button>
+            <button type="button" data-step="3">4 <span>👣</span> PIES</button>
+            <button type="button" data-step="4">5 <span>⛈️</span> TODOS</button>
+            <button type="button" data-step="5">6 <span>🤫</span> SILENCIO</button>
+          </div>
+          <div class="storm-now" id="stormNow">Pulsa EMPEZAR: la tormenta crecerá 5 veces y terminará en silencio.</div>
+          <audio id="stormAudio" src="assets/audio/la-tormenta-del-cuerpo.mp3" preload="auto"></audio>
+          <div class="storm-audio-status" id="stormAudioStatus">La música se cargará automáticamente al abrir la sesión.</div>
+        </div>
+      </section>
+
+
+      <!-- 8 -->
+      <section class="slide" data-slide="7" aria-labelledby="s8-title">
+        <div class="rhythm-layout">
+          <div class="rhythm-main">
+            <p class="eyebrow">7 · CREAMOS</p>
+            <h2 id="s8-title">Crea tu ritmo</h2>
+            <p class="student-prompt">Elige 4 sonidos. Puedes repetirlos o cambiarlos.</p>
+
+            <div class="rhythm-slots" id="rhythmSlots" aria-label="Tu ritmo de cuatro sonidos">
+              <div class="rhythm-slot" data-slot="0"><small>1</small><span>＋</span></div>
+              <div class="rhythm-slot" data-slot="1"><small>2</small><span>＋</span></div>
+              <div class="rhythm-slot" data-slot="2"><small>3</small><span>＋</span></div>
+              <div class="rhythm-slot" data-slot="3"><small>4</small><span>＋</span></div>
+            </div>
+
+            <div class="rhythm-palette" id="rhythmPalette">
+              <button class="rhythm-choice pink" type="button" data-rhythm="👏" data-rhythm-name="PALMAS">👏<b>PALMAS</b></button>
+              <button class="rhythm-choice green" type="button" data-rhythm="🦵" data-rhythm-name="MUSLOS">🦵<b>MUSLOS</b></button>
+              <button class="rhythm-choice blue" type="button" data-rhythm="👣" data-rhythm-name="PIES">👣<b>PIES</b></button>
+              <button class="rhythm-choice purple" type="button" data-rhythm="👄" data-rhythm-name="VOZ">👄<b>VOZ</b></button>
+            </div>
+
+            <div class="rhythm-edit">
+              <button class="secondary" id="rhythmUndo" type="button">↩ BORRAR ÚLTIMO</button>
+              <button class="secondary" id="rhythmClear" type="button">🗑 NUEVO RITMO</button>
+            </div>
+
+            <div class="rhythm-call" id="rhythmCall">Completa las 4 casillas.</div>
+            <div class="rhythm-turns">
+              <button class="child-turn" id="childTurn" type="button" disabled>🧒 TU RITMO</button>
+              <button class="group-turn" id="groupTurn" type="button" disabled>👥 TODOS IMITAMOS</button>
+            </div>
+          </div>
+
+          <aside class="rhythm-audio-panel">
+            <div class="rhythm-audio-symbol">🎵</div>
+            <h3>Música del juego</h3>
+            <p>La base marca el pulso mientras creamos e imitamos.</p>
+            <audio id="rhythmAudio" preload="metadata" loop src="assets/audio/crea-tu-ritmo.mp3"></audio>
+            <button class="primary rhythm-play" id="playRhythmAudio" type="button">▶ MÚSICA DEL JUEGO</button>
+            <button class="secondary" id="restartRhythmAudio" type="button">↺ DESDE EL PRINCIPIO</button>
+            <div class="audio-progress rhythm-progress"><div id="rhythmAudioBar"></div></div>
+            <div class="audio-status" id="rhythmAudioStatus">Base preparada · 1:11 · ~99 BPM · se repite hasta que la pauses.</div>
+            <div class="rhythm-rule">
+              <strong>4 sonidos</strong>
+              <span>🧒 crea → 👥 imitamos</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 9 -->
+      <section class="slide" data-slide="8" aria-labelledby="s9-title">
+        <div class="song-layout">
+          <figure class="song-art">
+            <img src="assets/images/cancion-cuerpo.png" alt="Niños cantando y haciendo percusión corporal" />
+          </figure>
+          <div class="song-panel">
+            <p class="eyebrow">8 · CIERRE MUSICAL</p>
+            <h2 id="s9-title">Con mi cuerpo hago música</h2>
+            <div class="song-modes">
+              <button class="mode-pill active" type="button" data-songmode="listen">👂 ESCUCHAMOS</button>
+              <button class="mode-pill" type="button" data-songmode="do">🎶 AHORA LO HACEMOS</button>
+            </div>
+            <div class="body-sequence" aria-label="Acciones de la canción"><span>👏</span><span>🦵</span><span>👣</span><span>🎤</span><span>🤫</span></div>
+            <audio id="songAudio" preload="metadata" src="assets/audio/con-mi-cuerpo-hago-musica.mp3"></audio>
+            <div class="audio-controls">
+              <button class="primary big-audio" id="playSong" type="button">▶ REPRODUCIR</button>
+              <button class="secondary" id="restartSong" type="button">↺ VOLVER A EMPEZAR</button>
+            </div>
+            <div class="audio-progress"><div id="audioBar"></div></div>
+            <div class="audio-status" id="audioStatus">Canción integrada y preparada.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 -->
+      <section class="slide" data-slide="9" aria-labelledby="s10-title">
+        <div class="closing-layout">
+          <p class="eyebrow">9 · CIERRE</p>
+          <h2 id="s10-title">¿Qué hemos usado para hacer música?</h2>
+          <div class="answer-grid">
+            <button type="button" class="answer-card" data-answer="instrumentos"><span>🎸</span><b>INSTRUMENTOS</b></button>
+            <button type="button" class="answer-card body-answer" data-answer="cuerpo"><span>🧒</span><b>NUESTRO CUERPO</b></button>
+          </div>
+          <div class="closing-feedback" id="closingFeedback">Elige una respuesta.</div>
+          <div class="final-pattern" id="finalPattern" hidden>
+            <p>Último reto:</p>
+            <div>👏 <span>→</span> 🦵 <span>→</span> 👣 <span>→</span> ✋</div>
+            <button class="success-btn" id="finishSession" type="button">⭐ ¡LO CONSEGUIMOS!</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="teacher-panel" id="teacherPanel" aria-hidden="true">
+      <div class="teacher-head">
+        <div><span>👩‍🏫</span><strong>AYUDA DOCENTE</strong></div>
+        <button id="teacherClose" class="close-btn" type="button" aria-label="Cerrar panel">×</button>
+      </div>
+      <div class="teacher-body" id="teacherBody"></div>
+    </aside>
+    <div class="panel-backdrop" id="panelBackdrop"></div>
+
+    <footer class="bottom-nav">
+      <button class="nav-btn" id="prevBtn" type="button">← ATRÁS</button>
+      <div class="session-label">SA · MI CUERPO SUENA · 45 MIN</div>
+      <button class="nav-btn next" id="nextBtn" type="button">SIGUIENTE →</button>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
