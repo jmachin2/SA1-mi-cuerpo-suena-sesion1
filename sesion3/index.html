@@ -30,6 +30,7 @@
     <iframe class="drivePlayer" src="https://drive.google.com/file/d/1Xfv7pvtxKY5X-8vEUSvq2B27NXx9Hk1g/preview" title="Rap de la semilla" allow="autoplay"></iframe>
   </div>
 </div>
+<div class="row"><button class="btn vio" id="openMissionVideo" type="button">VÍDEO · ESCUCHA Y DESCUBRE</button></div>
 <details class="audio optionalAudio"><summary><b>OTRO AUDIO / USB</b></summary><p>Para sustituirlos o añadir otra canción.</p><label class="file">CARGAR MP3<input type="file" id="file" accept="audio/*"></label><audio id="audio" controls></audio><small id="ast">No hay otro audio cargado.</small></details>
 <a class="ext" target="_blank" rel="noopener" href="https://www3.gobiernodecanarias.org/medusa/ecoescuela/elzurrondelasletras/juegos-y-canciones/">ABRIR RECURSO ORIGINAL DEL ZURRÓN</a></div><div><div class="ey">Cantamos por eco</div><h2>Escucho → repito → gesto</h2><p class="prompt">Elige un fragmento muy corto. No hace falta aprender la canción completa.</p><div class="echoPhrase"><button data-ph="1">FRASE 1 · escucha y responde</button><button data-ph="2">FRASE 2 · añade un gesto</button><button data-ph="3">UNIMOS LAS DOS</button></div><div class="close" id="phfb">Primero escucha el modelo completo. Después responde.</div></div></div></section>
 <section class="slide"><div class="panel copy" style="justify-content:flex-start"><span class="time">6 minutos</span><div class="ey">Reto final y cierre</div><h2>Ahora tú diriges la voz</h2><div class="challenge"><div class="ch on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12c3-5 13-5 16 0-3 5-13 5-16 0z"/><circle cx="12" cy="12" r="2"/></svg><b>ESCUCHA</b><span>Primero el modelo.</span></div><div class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5a4 4 0 018 0v6a4 4 0 01-8 0z"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg><b>IMITA</b><span>Haz el mismo eco.</span></div><div class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2 5 5 2-4 3 1 5-4-3-4 3 1-5-4-3 5-2z"/></svg><b>INVENTA</b><span>Ahora tú eres el músico.</span></div></div><div class="final"><div class="box"><b>ELIGE TUS SONIDOS</b><div class="bank" id="fbank"><button data-f="MA">MA</button><button data-f="LA">LA</button><button data-f="OH">OH</button><button data-f="MMM">MMM</button></div><small>Puede repetir. Repetir también es crear.</small></div><div class="box"><b>MI PEQUEÑO ECO</b><div class="slots" id="fslots"><div class="slot">+</div><div class="slot">+</div><div class="slot">+</div><div class="slot">+</div></div><div class="row"><button class="btn vio" id="challenge">HACEMOS EL RETO</button><button class="btn soft" id="fclear">BORRAR</button></div></div></div><div class="close" id="finalmsg">Al principio preguntamos: ¿podemos hacer música con nuestra voz?</div><div class="row"><button class="btn warm" id="finish">MOSTRAR CIERRE</button></div></div></section>
@@ -43,6 +44,19 @@
     <div class="row"><a class="btn soft" href="https://www.youtube.com/watch?v=mX5l8zJmr6o" target="_blank" rel="noopener">ABRIR EN YOUTUBE</a></div>
   </div>
 </div>
+<div class="mediaModal" id="missionModal" aria-hidden="true">
+  <div class="mediaDialog">
+    <div class="mediaHead"><div><div class="ey">Una sola misión</div><h3>Escucha y descubre</h3></div><button class="btn soft" id="closeMissionVideo" type="button">CERRAR</button></div>
+    <div class="videoFrame" id="missionVideoBox">
+      <div class="videoPlaceholder">
+        <p>Escucha con atención: ¿qué escuchas?, ¿habla o canta?, ¿cómo lo sabes?</p>
+        <button class="btn vio" id="loadMissionVideo" type="button">CARGAR VÍDEO</button>
+      </div>
+    </div>
+    <div class="videoHint">Úsalo como tercera escucha o como alternativa a uno de los audios. Mantén la misma misión de escucha.</div>
+    <div class="row"><a class="btn soft" href="https://www.youtube.com/watch?v=OEkd3znXZSM" target="_blank" rel="noopener">ABRIR EN YOUTUBE</a></div>
+  </div>
+</div>
 <aside class="teacher" id="teacher"><div class="th"><div><div class="ey">Ayuda al maestro</div><h3 id="tt"></h3></div><button class="btn soft" id="x">CERRAR</button></div><div id="tc"></div></aside>
 <script>
 (()=>{const S=[...document.querySelectorAll('.slide')],P=document.getElementById('prog'),W=document.getElementById('where');let C=0,T=null;
@@ -51,7 +65,7 @@ const N=[
 ['2 · Descubrimos nuestra voz','7 min','Percibir que la voz se produce con nuestro cuerpo y explorarla.','Di: «Vamos a investigar un instrumento que todos hemos traído». Mano suave en la garganta. Modela «mmmm». Después AAAA, OOOO y SHHH. Siempre: modelo → silencio → repetición.','Curiosidad, participación y variación voluntaria de la voz.','No hace falta anatomía. Evita gritos. Docente visible y aula silenciosa antes de cada modelo.'],
 ['3 · ¿Hablamos o cantamos?','7 min','Diferenciar voz hablada y cantada de forma práctica.','Di «Hola, buenos días» normalmente y pregunta si hablas o cantas. Después canta exactamente la misma frase. Repite con «Hola» o «Me llamo…».','Identifica hablar/cantar mediante voz, gesto o elección.','No introduzcas teoría. Si cuesta, exagera al principio la melodía cantada.'],
 ['4 · El juego del eco','8 min','Trabajar escucha, memoria, imitación vocal y pulso, y después aplicar la idea de eco en una canción infantil.','Primero usa el generador: «Un eco primero escucha y después repite». Haz 2 o 3 modelos cortos. Después abre La canción del ECO y di: «Ahora el vídeo será quien hace el modelo. Nosotros no cantamos a la vez: escuchamos, esperamos y respondemos». Puedes parar el vídeo después de una secuencia para comprobar si el grupo respeta el turno.','Espera antes de responder, reproduce el orden, mantiene un tempo sencillo y comprende la alternancia modelo → eco.','No es necesario ver el vídeo completo. Usa solo el fragmento que mantenga la dinámica clara. Si empiezan a cantar encima del modelo, pausa y vuelve a recordar: primero escucha, después responde.'],
-['5 · Escuchamos y cantamos','12 min','Distinguir voz hablada y cantada en dos canciones y transferir el aprendizaje a un contexto musical real.','Empieza con HABLO O CANTO: «Solo una misión: descubrir cuándo la voz habla y cuándo canta». Después pregunta: «¿Qué escuchaste? ¿Cómo lo sabes?». Luego usa RAP DE LA SEMILLA como reto: «Ahora no os lo voy a decir. Levantad la señal HABLA cuando escuchéis rap hablado y CANTA cuando aparezca la melodía». Puedes detener después de cada cambio.','Identifica los cambios de uso de la voz, espera para responder y justifica mediante una pista auditiva sencilla.','No reproduzcas necesariamente las dos canciones completas. Usa fragmentos suficientes para que aparezca el contraste. Los reproductores de Drive necesitan conexión a Internet; la carga desde USB queda como alternativa.'],
+['5 · Escuchamos y cantamos','12 min','Distinguir voz hablada y cantada en diferentes ejemplos y transferir el aprendizaje a un contexto musical real.','Empieza con HABLO O CANTO: «Solo una misión: descubrir cuándo la voz habla y cuándo canta». Después pregunta: «¿Qué escuchaste? ¿Cómo lo sabes?». Luego usa RAP DE LA SEMILLA como reto. El nuevo vídeo puede funcionar como tercera escucha o como sustitución: mantenemos siempre las mismas tres preguntas.','Identifica los cambios de uso de la voz, espera para responder y justifica mediante una pista auditiva sencilla.','No hace falta reproducir todos los recursos completos. Elige los fragmentos que mejor mantengan el contraste y la atención. Los recursos de Drive y YouTube necesitan Internet; la carga desde USB queda como alternativa.'],
 ['6 · Reto final','6 min','Pasar de imitación a una primera decisión creativa y cerrar.','Di: «Hasta ahora yo inventaba y vosotros erais el eco. Ahora uno será el músico y nosotros su eco». Si alguien duda, ofrece MA o LA, o que copie y cambie el final. Cierra: «Con mi voz hago música».','Imita un eco, propone o modifica un modelo y verbaliza el descubrimiento.','No necesitas evaluar a 20 alumnos hoy. Registra algunas muestras y continúa después.']];
 function H(n){return '<div class="tn"><b>Tiempo</b><br>'+n[1]+'</div><div class="tn"><b>Qué buscamos</b><br>'+n[2]+'</div><div class="tn say"><b>Cómo lo explico</b><br>'+n[3]+'</div><div class="tn obs"><b>Qué observo</b><br>'+n[4]+'</div><div class="tn care"><b>Ten en cuenta</b><br>'+n[5]+'</div>'}
 function RH(){let n=N[C];document.getElementById('tt').textContent=n[0];document.getElementById('tc').innerHTML=H(n)}
@@ -73,6 +87,13 @@ if(openEchoVideo)openEchoVideo.onclick=openVideoModal;if(closeEchoVideo)closeEch
 if(echoModal)echoModal.addEventListener('click',e=>{if(e.target===echoModal)closeVideoModal()});
 if(loadEchoVideo)loadEchoVideo.onclick=()=>{const box=document.getElementById('echoVideoBox');if(box.querySelector('iframe'))return;const f=document.createElement('iframe');f.title='COREOKIDS · La canción del ECO con baile';f.src='https://www.youtube-nocookie.com/embed/mX5l8zJmr6o?rel=0';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;box.innerHTML='';box.appendChild(f)};
 
+const missionModal=document.getElementById('missionModal'),openMissionVideo=document.getElementById('openMissionVideo'),closeMissionVideo=document.getElementById('closeMissionVideo'),loadMissionVideo=document.getElementById('loadMissionVideo');
+function openMissionModal(){missionModal.classList.add('open');missionModal.setAttribute('aria-hidden','false')}
+function closeMissionModal(){missionModal.classList.remove('open');missionModal.setAttribute('aria-hidden','true')}
+if(openMissionVideo)openMissionVideo.onclick=openMissionModal;if(closeMissionVideo)closeMissionVideo.onclick=closeMissionModal;
+if(missionModal)missionModal.addEventListener('click',e=>{if(e.target===missionModal)closeMissionModal()});
+if(loadMissionVideo)loadMissionVideo.onclick=()=>{const box=document.getElementById('missionVideoBox');if(box.querySelector('iframe'))return;const f=document.createElement('iframe');f.title='Vídeo de escucha · Una sola misión';f.src='https://www.youtube-nocookie.com/embed/OEkd3znXZSM?rel=0';f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';f.allowFullscreen=true;box.innerHTML='';box.appendChild(f)};
+
 function fitActiveSlide(){
  const s=S[C], stage=document.querySelector('.stage'); if(!s||!stage)return;
  const content=s.firstElementChild; if(!content)return;
@@ -87,5 +108,5 @@ function fitActiveSlide(){
 const oldShow=show; show=function(i){oldShow(i);requestAnimationFrame(fitActiveSlide)};
 window.addEventListener('resize',()=>requestAnimationFrame(fitActiveSlide));
 document.addEventListener('fullscreenchange',()=>setTimeout(fitActiveSlide,100));
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(C===5?0:C+1);if(e.key==='ArrowLeft')show(C-1);if(e.key.toLowerCase()==='d')TP.classList.contains('open')?CH():OH();if(e.key.toLowerCase()==='f')full.click();if(e.key==='Escape'){CH();closeVideoModal()}});RP();RF();RH();show(0);setTimeout(fitActiveSlide,80)})();
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(C===5?0:C+1);if(e.key==='ArrowLeft')show(C-1);if(e.key.toLowerCase()==='d')TP.classList.contains('open')?CH():OH();if(e.key.toLowerCase()==='f')full.click();if(e.key==='Escape'){CH();closeVideoModal();closeMissionModal()}});RP();RF();RH();show(0);setTimeout(fitActiveSlide,80)})();
 </script></body></html>
