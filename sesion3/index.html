@@ -25,9 +25,43 @@
 @media(max-width:1050px){.echoVideoAction{grid-template-columns:1fr}.echoVideoAction .videoTile{display:none}}
 @media(max-width:760px){.cucoModalContent{grid-template-columns:1fr}.cucoLyrics p{font-size:1.05rem}.cucoTrack audio{height:46px}}
 @media(max-height:650px){.cucoModalContent{grid-template-columns:1fr 1fr}.cucoLyrics p{font-size:1rem}.cucoTrack{padding:8px}.cucoTrack audio{height:40px}.cucoOpen{min-height:60px}}
+
+/* Ficha interactiva de evaluación - Sesión 3 */
+.evalModal{position:fixed;inset:0;background:#172838b8;z-index:120;display:none;align-items:center;justify-content:center;padding:12px}
+.evalModal.open{display:flex}
+.evalDialog{background:#fffdfa;border-radius:22px;width:min(1080px,96vw);max-height:95dvh;overflow:auto;padding:clamp(14px,2vw,26px);box-shadow:0 15px 60px #14233455}
+.evalHead{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.evalHead h2{font-size:clamp(1.4rem,2.5vw,2.5rem);margin:0}
+.evalForm{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.evalForm label{display:flex;flex:1;min-width:180px;flex-direction:column;gap:4px;font-weight:800}
+.evalForm input{font:inherit;padding:10px;border:2px solid #cbdadf;border-radius:10px;min-width:0}
+.evalTable{border-collapse:collapse;width:100%;font-size:clamp(.85rem,1.25vw,1.07rem)}
+.evalTable th,.evalTable td{padding:8px;border-bottom:1px solid #d9e1e7;text-align:left}
+.evalTable th:first-child{width:49%}
+.evalLevels{display:flex;justify-content:space-between;gap:4px}
+.evalLevels label{padding:8px;display:flex;align-items:center;gap:5px;border-radius:10px;background:#eaf3f2;font-weight:900}
+.evalLevels input{width:18px;height:18px;accent-color:#4f9b99}
+.evalControls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.evalControls .btn{min-height:42px;padding:9px 12px}
+.evalLegend{font-size:.84rem;color:#536879;line-height:1.5}
+.evalMsg{font-weight:900;color:#286c6b;min-height:22px}
+#printEvalArea{display:none}
+@media(max-width:650px){.evalTable th,.evalTable td{padding:5px 2px}.evalLevels label{padding:4px;font-size:.8rem}.evalDialog{padding:12px}.evalControls .btn{font-size:.85rem}}
+@media print{
+@page{size:A4 portrait;margin:13mm}
+body.evalPrinting .app,body.evalPrinting .scrim,body.evalPrinting .mediaModal,body.evalPrinting .evalModal,body.evalPrinting .teacher,body.evalPrinting .teacherPanel{display:none!important}
+body.evalPrinting,body.evalPrinting html{height:auto!important;overflow:visible!important;background:#fff!important}
+body.evalPrinting #printEvalArea{display:block!important;font-family:Arial,sans-serif;color:#172c36}
+#printEvalArea h1{font-size:21pt;margin:0 0 10mm}
+#printEvalArea h2{font-size:15pt;margin:6mm 0}
+#printEvalArea table{width:100%;border-collapse:collapse;margin-top:8mm}
+#printEvalArea th,#printEvalArea td{border:1px solid #789;padding:3mm;font-size:10pt}
+#printEvalArea .drawing{border:2px dashed #789;height:65mm;border-radius:8px;margin-top:4mm}
+#printEvalArea .reflection{border:1px solid #789;padding:6mm;margin:5mm 0}
+}
 </style></head>
 <body><div class="app">
-<header class="top"><div class="brand"><b>MÚSICA · 1.º PRIMARIA</b><small>Sesión 3 · Mi voz saluda</small></div><div class="prog"><i id="prog"></i></div><div class="actions"><a class="btn soft topLink" href="../index.html">SESIONES</a><button class="btn soft" id="help">AYUDA AL MAESTRO</button><button class="btn soft" id="full">PANTALLA</button></div></header>
+<header class="top"><div class="brand"><b>MÚSICA · 1.º PRIMARIA</b><small>Sesión 3 · Mi voz saluda</small></div><div class="prog"><i id="prog"></i></div><div class="actions"><a class="btn soft topLink" href="../index.html">SESIONES</a><button class="btn tur" id="openEval" type="button">📝 EVALUACIÓN</button><button class="btn soft" id="help">AYUDA AL MAESTRO</button><button class="btn soft" id="full">PANTALLA</button></div></header>
 <main class="stage">
 <section class="slide on"><div class="panel cover"><div class="copy"><div class="ey">SA1 · MI CUERPO SUENA</div><h1>Mi voz<br>saluda</h1><p class="lead">Nuestro cuerpo hace música y la música tiene pulso. Hoy descubrimos un instrumento que siempre llevamos con nosotros.</p><div class="q">¿Podemos hacer música con nuestra voz?</div><div><button class="btn dark" id="start">EMPEZAR</button></div></div><div class="visual"><svg class="art" viewBox="0 0 700 560"><rect x="25" y="25" width="650" height="510" rx="48" fill="#eef7f5"/><circle cx="205" cy="205" r="67" fill="#efc09a"/><path d="M143 192c8-80 119-87 126 2-32-31-83-38-126-2" fill="#57453e"/><rect x="142" y="283" width="130" height="170" rx="52" fill="#58a3a0"/><circle cx="497" cy="205" r="67" fill="#e7b486"/><path d="M437 191c13-75 109-84 123 2-34-26-80-34-123-2" fill="#70463b"/><rect x="433" y="283" width="130" height="170" rx="52" fill="#8b76b4"/><path d="M275 210c32-29 59-23 80-4M425 210c-32-29-59-23-80-4" fill="none" stroke="#7865a8" stroke-width="9" stroke-linecap="round"/><path d="M350 95v49m0-49 42-11v44" fill="none" stroke="#7865a8" stroke-width="8"/><circle cx="336" cy="145" r="15" fill="#fffdfa" stroke="#7865a8" stroke-width="7"/><circle cx="379" cy="128" r="15" fill="#fffdfa" stroke="#7865a8" stroke-width="7"/><text x="350" y="505" text-anchor="middle" font-size="25" font-weight="900" fill="#344a5d">VOZ · ECO · MÚSICA</text></svg></div></div></section>
 <section class="slide"><div class="two"><div class="visual"><svg class="art" viewBox="0 0 650 560"><rect x="25" y="25" width="600" height="510" rx="46" fill="#e7f3f0"/><circle cx="325" cy="185" r="94" fill="#efc09a"/><path d="M237 174c12-102 166-112 176 2-50-42-122-49-176-2" fill="#55433d"/><rect x="235" y="310" width="180" height="190" rx="70" fill="#7d6aaa"/><path d="M398 350c-43 4-67 30-76 82" fill="none" stroke="#efc09a" stroke-width="30" stroke-linecap="round"/><circle cx="321" cy="331" r="26" fill="#e89c9c" opacity=".45"/><path d="M425 185c34-27 63-20 87-3M441 215c27-20 49-14 68-1M458 244c19-12 35-8 50 0" fill="none" stroke="#7865a8" stroke-width="8" stroke-linecap="round"/><text x="325" y="70" text-anchor="middle" font-size="23" font-weight="900" fill="#4e3f77">MANO SUAVE EN LA GARGANTA</text></svg></div><div class="panel copy"><span class="time">7 minutos</span><div class="ey">Descubre tu voz</div><h2>¿Notas la vibración?</h2><p class="prompt">Escucha primero. Después lo hacemos juntos.</p><div class="soundBtns"><button data-v="MMMM">MMMM</button><button data-v="AAAA">AAAA</button><button data-v="OOOO">OOOO</button><button data-v="SHHH">SHHH</button></div><div class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i></div><div class="feedback" id="vfb">Elige un sonido. Sin gritar.</div><div class="close">Nuestro cuerpo también nos ayuda a hacer música.</div></div></div></section>
@@ -60,6 +94,19 @@
 <a class="ext" target="_blank" rel="noopener" href="https://www3.gobiernodecanarias.org/medusa/ecoescuela/elzurrondelasletras/juegos-y-canciones/">ABRIR RECURSO ORIGINAL DEL ZURRÓN</a></div><div><div class="ey">Cantamos por eco</div><h2>Escucho → repito → gesto</h2><p class="prompt">Elige un fragmento muy corto. No hace falta aprender la canción completa.</p><div class="echoPhrase"><button data-ph="1">FRASE 1 · escucha y responde</button><button data-ph="2">FRASE 2 · añade un gesto</button><button data-ph="3">UNIMOS LAS DOS</button></div><div class="close" id="phfb">Primero escucha el modelo completo. Después responde.</div></div></div></section>
 <section class="slide"><div class="panel copy" style="justify-content:flex-start"><span class="time">6 minutos</span><div class="ey">Reto final y cierre</div><h2>Ahora tú diriges la voz</h2><div class="challenge"><div class="ch on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12c3-5 13-5 16 0-3 5-13 5-16 0z"/><circle cx="12" cy="12" r="2"/></svg><b>ESCUCHA</b><span>Primero el modelo.</span></div><div class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5a4 4 0 018 0v6a4 4 0 01-8 0z"/><path d="M5 11a7 7 0 0014 0M12 18v3"/></svg><b>IMITA</b><span>Haz el mismo eco.</span></div><div class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l2 5 5 2-4 3 1 5-4-3-4 3 1-5-4-3 5-2z"/></svg><b>INVENTA</b><span>Ahora tú eres el músico.</span></div></div><div class="final"><div class="box"><b>ELIGE TUS SONIDOS</b><div class="bank" id="fbank"><button data-f="MA">MA</button><button data-f="LA">LA</button><button data-f="OH">OH</button><button data-f="MMM">MMM</button></div><small>Puede repetir. Repetir también es crear.</small></div><div class="box"><b>MI PEQUEÑO ECO</b><div class="slots" id="fslots"><div class="slot">+</div><div class="slot">+</div><div class="slot">+</div><div class="slot">+</div></div><div class="row"><button class="btn vio" id="challenge">HACEMOS EL RETO</button><button class="btn soft" id="fclear">BORRAR</button></div></div></div><div class="close" id="finalmsg">Al principio preguntamos: ¿podemos hacer música con nuestra voz?</div><div class="row"><button class="btn warm" id="finish">MOSTRAR CIERRE</button></div></div></section>
 </main><footer class="bottom"><button class="btn soft" id="prev">ATRÁS</button><div class="where" id="where">1 / 6</div><button class="btn dark" id="next">SIGUIENTE</button></footer></div>
+
+<div class="evalModal" id="evalModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Evaluación de la sesión 3">
+<div class="evalDialog">
+<div class="evalHead"><div><div class="ey">MÚSICA · 1.º DE PRIMARIA · SESIÓN 3</div><h2>📝 Evaluación del eco musical</h2></div><button class="btn soft" id="closeEval">CERRAR</button></div>
+<p class="evalLegend">Registra evidencias observadas durante el juego de eco, la canción y la exploración de la voz. No es necesario que el alumnado lea esta ficha.</p>
+<div class="evalForm"><label>Alumno/a<input id="evalStudent" autocomplete="off" placeholder="Nombre y apellidos"></label><label>Fecha<input id="evalDate" type="date"></label></div>
+<table class="evalTable"><thead><tr><th>Indicador observable</th><th>Valoración (1–4)</th></tr></thead><tbody id="evalTbody"></tbody></table>
+<p class="evalLegend"><b>Escala:</b> 1 = necesita apoyo continuo · 2 = lo consigue con ayuda · 3 = lo hace autónomamente · 4 = lo hace con seguridad y puede servir de modelo.</p>
+<div class="evalControls"><button class="btn dark" id="evalSave">💾 GUARDAR</button><button class="btn tur" id="evalExport">⬇ EXPORTAR CSV</button><button class="btn vio" id="evalPrint">🖨 REGISTRO DOCENTE</button><button class="btn warm" id="evalPrintStudent">🎨 FICHA PARA EL ALUMNADO</button></div>
+<div class="evalMsg" id="evalMsg" aria-live="polite"></div>
+<p class="evalLegend">Los registros se almacenan en este navegador. Exporta el CSV para conservar una copia fuera del ordenador.</p>
+</div></div>
+<div id="printEvalArea" aria-hidden="true"><h1 id="printEvalTitle">Música · Sesión 3</h1><p id="printEvalStudent"></p><div id="printEvalContent"></div></div>
 <div class="scrim" id="scrim"></div>
 <div class="mediaModal" id="cucoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="El cuco en el pinar">
   <div class="mediaDialog">
@@ -211,4 +258,65 @@ const oldShow=show; show=function(i){oldShow(i);requestAnimationFrame(fitActiveS
 window.addEventListener('resize',()=>requestAnimationFrame(fitActiveSlide));
 document.addEventListener('fullscreenchange',()=>setTimeout(fitActiveSlide,100));
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(C===5?0:C+1);if(e.key==='ArrowLeft')show(C-1);if(e.key.toLowerCase()==='d')TP.classList.contains('open')?CH():OH();if(e.key.toLowerCase()==='f')full.click();if(e.key==='Escape'){CH();closeCuco();closeVideoModal();closeMissionModal()}});RP();RF();RH();show(0);setTimeout(fitActiveSlide,80)})();
+
+/* Evaluación de la sesión 3: guardado local, CSV y fichas de impresión */
+(function(){
+const indicators=[
+'Explora distintas posibilidades de su voz sin gritar',
+'Distingue prácticamente la voz hablada y la cantada',
+'Escucha el modelo antes de responder',
+'Reproduce un eco rítmico sencillo con palmas o sílabas',
+'Imita una frase melódica breve con la voz',
+'Participa en el turno de llamada y respuesta'
+];
+const get=id=>document.getElementById(id),modal=get('evalModal'),tb=get('evalTbody');
+const storageKey='musica_primaria_sesion3_eval_v1';
+indicators.forEach((name,i)=>{
+ const row=document.createElement('tr'),title=document.createElement('td'),levels=document.createElement('td'),wrap=document.createElement('div');
+ title.textContent=name;wrap.className='evalLevels';
+ for(let n=1;n<=4;n++){let l=document.createElement('label'),input=document.createElement('input');input.type='radio';input.name='evalLevel'+i;input.value=String(n);input.setAttribute('aria-label',name+', nivel '+n);l.append(input,document.createTextNode(String(n)));wrap.append(l)}
+ levels.append(wrap);row.append(title,levels);tb.append(row);
+});
+get('evalDate').value=new Date().toLocaleDateString('en-CA');
+function read(){try{return JSON.parse(localStorage.getItem(storageKey)||'[]')}catch(e){return []}}
+function current(){return {nombre:get('evalStudent').value.trim(),fecha:get('evalDate').value,niveles:indicators.map((_,i)=>document.querySelector('input[name="evalLevel'+i+'"]:checked')?.value||'')}}
+function open(){document.querySelectorAll('audio').forEach(a=>a.pause());modal.classList.add('open');modal.setAttribute('aria-hidden','false');get('closeEval').focus()}
+function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true')}
+get('openEval').addEventListener('click',open);get('closeEval').addEventListener('click',close);
+modal.addEventListener('click',e=>{if(e.target===modal)close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open')){e.stopPropagation();close()}});
+function loadEntry(){let a=current(),entry=read().find(x=>x.nombre.toLowerCase()===a.nombre.toLowerCase()&&x.fecha===a.fecha);indicators.forEach((_,i)=>document.querySelectorAll('input[name="evalLevel'+i+'"]').forEach(input=>input.checked=!!entry&&input.value===entry.niveles[i]));}
+get('evalStudent').addEventListener('change',loadEntry);get('evalDate').addEventListener('change',loadEntry);
+get('evalSave').addEventListener('click',()=>{
+ const a=current();if(!a.nombre){get('evalMsg').textContent='Escribe primero el nombre del alumno o alumna.';return}
+ const entries=read(),idx=entries.findIndex(x=>x.fecha===a.fecha&&x.nombre.toLowerCase()===a.nombre.toLowerCase());if(idx>=0)entries[idx]=a;else entries.push(a);
+ try{localStorage.setItem(storageKey,JSON.stringify(entries));get('evalMsg').textContent='✓ Registro guardado ('+entries.length+' evaluaciones en este navegador).'}catch(e){get('evalMsg').textContent='No se pudo guardar. Exporta los datos.'}
+});
+get('evalExport').addEventListener('click',()=>{
+ const entries=read();if(!entries.length){get('evalMsg').textContent='Primero guarda al menos una evaluación.';return}
+ const q=x=>'"'+String(x??'').replace(/"/g,'""')+'"';
+ const lines=[['Alumno/a','Fecha',...indicators],...entries.map(x=>[x.nombre,x.fecha,...x.niveles])].map(row=>row.map(q).join(';')).join('\r\n');
+ const blob=new Blob(['\uFEFF'+lines],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='evaluacion_musica_sesion3.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500);
+});
+function printStudent(){
+ get('printEvalTitle').textContent='🐦 El eco del cuco · Mi ficha de Música';
+ get('printEvalStudent').textContent='Nombre: _____________________________________  Fecha: _____________';
+ get('printEvalContent').innerHTML='<h2>1. Escucho y repito</h2><div class="reflection">La maestra canta: «CU-CÚ, CU-CÚ». Después, yo respondo: «CU-CÚ, CU-CÚ».</div><h2>2. Escucho el ritmo y hago el eco</h2><div class="reflection">La maestra hace palmas: 👏　👏 👏. Ahora las repito.</div><h2>3. Dibujo al cuco y su eco</h2><div class="drawing"></div><h2>4. ¿Cómo me sentí?</h2><div class="reflection" style="font-size:24pt;text-align:center">😊　　　 😐　　　🙁</div>';
+ window.print();
+}
+function printTeacher(){
+ const a=current();
+ get('printEvalTitle').textContent='Registro docente · Música · Sesión 3';
+ get('printEvalStudent').textContent='Alumno/a: '+(a.nombre||'____________________________')+'　 Fecha: '+(a.fecha||'__________');
+ const wrap=get('printEvalContent');wrap.replaceChildren();const table=document.createElement('table');
+ const head=document.createElement('tr');['Indicador','1','2','3','4'].forEach(t=>{let th=document.createElement('th');th.textContent=t;head.append(th)});table.append(head);
+ indicators.forEach((ind,i)=>{let tr=document.createElement('tr'),td=document.createElement('td');td.textContent=ind;tr.append(td);for(let n=1;n<=4;n++){let x=document.createElement('td');x.textContent=a.niveles[i]===String(n)?'☑':'☐';tr.append(x)}table.append(tr)});
+ wrap.append(table);const p=document.createElement('p');p.textContent='1: apoyo continuo · 2: con ayuda · 3: autónomo · 4: seguro y sirve de modelo';wrap.append(p);
+ const h=document.createElement('h2');h.textContent='Observaciones y próximo paso';wrap.append(h);const box=document.createElement('div');box.style='height:48mm;border:1px solid #789';wrap.append(box);window.print();
+}
+get('evalPrint').addEventListener('click',()=>{document.body.classList.add('evalPrinting');printTeacher()});
+get('evalPrintStudent').addEventListener('click',()=>{document.body.classList.add('evalPrinting');printStudent()});
+window.addEventListener('afterprint',()=>document.body.classList.remove('evalPrinting'));
+})();
+
 </script></body></html>
