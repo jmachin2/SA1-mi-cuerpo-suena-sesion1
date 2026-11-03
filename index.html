@@ -6,26 +6,27 @@
 <title>Mi cuerpo suena · Música 1.º Primaria</title>
 <meta name="description" content="Sesiones de Música de 1.º de Primaria: Mi cuerpo suena">
 <style>
-:root{--ink:#17324d;--muted:#66788a;--paper:#fffdf8;--line:#d9e4ec;--s1:#dcefe8;--s1b:#2f7564;--s2:#e8e2f6;--s2b:#65549a}
+:root{--ink:#17324d;--muted:#66788a;--paper:#fffdf8;--line:#d9e4ec;--s1:#dcefe8;--s1b:#2f7564;--s2:#e8e2f6;--s2b:#65549a;--s3:#e4f2f0;--s3b:#5e4e93}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:linear-gradient(180deg,#f7fbfd 0%,var(--paper) 100%)}
 main{max-width:1100px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(18px,4vw,42px) 90px}
 header{text-align:center;margin-bottom:clamp(28px,5vw,54px)}
 .kicker{font-size:14px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 h1{font-size:clamp(38px,6vw,72px);line-height:1.02;margin:0 0 14px;letter-spacing:-.045em}
 .lead{font-size:clamp(18px,2.1vw,24px);line-height:1.45;margin:0 auto;max-width:760px;color:#496174}
-.sessions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,3vw,30px)}
+.sessions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,30px)}
 .card{position:relative;display:flex;min-height:330px;flex-direction:column;justify-content:space-between;border:1px solid var(--line);border-radius:28px;padding:clamp(26px,4vw,42px);text-decoration:none;color:inherit;overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
 .card:focus-visible{outline:4px solid #17324d;outline-offset:4px}
 .card:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(23,50,77,.12)}
 .s1{background:linear-gradient(145deg,#f7fcfa 0%,var(--s1) 100%)}
 .s2{background:linear-gradient(145deg,#fbf9ff 0%,var(--s2) 100%)}
+.s3{background:linear-gradient(145deg,#f8f6ff 0%,var(--s3) 100%)}
 .num{font-size:clamp(64px,9vw,112px);line-height:.82;font-weight:900;letter-spacing:-.07em;opacity:.16;position:absolute;right:28px;top:28px}
 .tag{font-size:14px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
-.s1 .tag{color:var(--s1b)}.s2 .tag{color:var(--s2b)}
+.s1 .tag{color:var(--s1b)}.s2 .tag{color:var(--s2b)}.s3 .tag{color:var(--s3b)}
 h2{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 14px;letter-spacing:-.035em;max-width:80%}
 .desc{font-size:18px;line-height:1.45;color:#4e6374;max-width:560px;margin:0 0 28px}
 .enter{align-self:flex-start;border:2px solid currentColor;border-radius:999px;padding:11px 18px;font-weight:850;font-size:15px;background:rgba(255,255,255,.72)}
-.s1 .enter{color:var(--s1b)}.s2 .enter{color:var(--s2b)}
+.s1 .enter{color:var(--s1b)}.s2 .enter{color:var(--s2b)}.s3 .enter{color:var(--s3b)}
 footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px}
 @media(max-width:760px){.sessions{grid-template-columns:1fr}.card{min-height:280px}h2{max-width:90%}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
@@ -56,6 +57,15 @@ footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px}
 <p class="desc">Sentimos el latido, descubrimos el pulso musical y aprendemos a mantenerlo juntos con el cuerpo y el movimiento.</p>
 </div>
 <span class="enter">ABRIR SESIÓN 2</span>
+</a>
+<a class="card s3" href="sesion3/">
+<span class="num" aria-hidden="true">03</span>
+<div>
+<div class="tag">Sesión 3</div>
+<h2>Mi voz saluda</h2>
+<p class="desc">Descubrimos la voz como instrumento: hablamos, cantamos, escuchamos, imitamos ecos y creamos pequeños modelos.</p>
+</div>
+<span class="enter">ABRIR SESIÓN 3</span>
 </a>
 </section>
 <footer>CEIP Camino Largo · Música · Primer ciclo</footer>
