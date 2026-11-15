@@ -9,9 +9,9 @@
 
 ## Identidad y alcance
 
-Web para conducir sesiones musicales en 1.º de Primaria, diseñada para el uso en clase y pizarra digital. Las **tres sesiones existentes se consideran contenido pedagógico conservado**. La documentación no autoriza a modificar sus actividades, textos, imágenes, audios, tiempos, navegación o evaluación sin una petición expresa.
+Web para conducir sesiones musicales en 1.º de Primaria, diseñada para el uso en clase y pizarra digital. Las **cuatro sesiones existentes se consideran contenido pedagógico conservado**. La documentación no autoriza a modificar sus actividades, textos, imágenes, audios, tiempos, navegación o evaluación sin una petición expresa.
 
-El nombre del repositorio contiene «sesion1» por razones históricas, pero aloja **las sesiones 1, 2 y 3**. No renombrar el repositorio sin planificar redirecciones y revisar enlaces externos.
+El nombre del repositorio contiene «sesion1» por razones históricas, pero aloja **las sesiones 1, 2, 3 y 4**. No renombrar el repositorio sin planificar redirecciones y revisar enlaces externos.
 
 ## Sesiones existentes
 
@@ -20,6 +20,18 @@ El nombre del repositorio contiene «sesion1» por razones históricas, pero alo
 | 1 | Mi cuerpo suena | `sesion1.html` | [Sesión 1](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion1.html) |
 | 2 | Mi cuerpo tiene pulso | `sesion2/index.html` | [Sesión 2](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion2/) |
 | 3 | Mi voz saluda | `sesion3/index.html` | [Sesión 3](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion3/) |
+| 4 | Caminamos con la Pandorga | `sesion4/index.html` | [Sesión 4](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion4/) |
+
+### Sesión 4 — nueva sesión (15/11/2026)
+
+- Ruta: `sesion4/index.html`. Siete pantallas: presentación, escucha de La Palma, pasos y pulso, percusión corporal, dirección, cierre y evaluación.
+- Vinculación pedagógica: SA1, recepción de música canaria y seguimiento del pulso; criterios de referencia 1.1 y 1.2.
+- Carpeta de origen: [Letra P en Google Drive](https://drive.google.com/drive/folders/1ivLT8DZe4aUR75MprPoqSmgk88n6to_l).
+- Se localizó la base orquestal `orquestal de la Pandorga palmera - BASE MUSICAL orquestal  (1) (1).mp3` y otros audios. **El MP3 no quedó incorporado a GitHub**, porque la transferencia dio error. La web ofrece el enlace al archivo de Drive y un control «Cargar MP3» para reproducir una copia local. No se debe afirmar que la música se reproduce automáticamente sin descarga.
+- Pulso generado por la web: metrónomo didáctico con control de velocidad, independiente de la grabación; no se ha medido el tempo de la polca.
+- Evaluación: registro en el navegador, exportación CSV y ficha imprimible, sin conexión automática con Google Sheets.
+- La identidad de la Pandorga y la Danza de los Enanos se distingue expresamente: el recurso escolar asocia el cuento de la Pandorga con música relacionada con los Enanos; no se propone una danza tradicional auténtica.
+- La navegación, los audios y la impresión requieren comprobación práctica en el aula.
 
 ### Sesión 3 — estado observado
 
@@ -43,6 +55,8 @@ El nombre del repositorio contiene «sesion1» por razones históricas, pero alo
 │   ├── el-cuco-modelo.mp3
 │   ├── hablo-o-canto.mp3
 │   └── rap-de-la-semilla.mp3
+├── sesion4/
+│   └── index.html              # Sesión 4, escucha y movimiento
 ├── app.js                      # Código de la web original / sesión 1
 ├── styles.css                  # Estilos de la web original / sesión 1
 ├── *.png                       # Ilustraciones originales en la raíz
@@ -67,7 +81,7 @@ Las ilustraciones y audios de la raíz, y el HTML de las sesiones 1 y 2, **se ma
 
 ## Comprobaciones después de cada modificación
 
-- La portada abre las sesiones 1, 2 y 3.
+- La portada abre las sesiones 1, 2, 3 y 4.
 - La navegación anterior/siguiente y el modo pantalla completa siguen funcionando.
 - No hay botones superpuestos ni controles cortados en ordenador o pizarra.
 - Las imágenes cargan sin enlaces rotos.
@@ -89,4 +103,5 @@ Las ilustraciones y audios de la raíz, y el HTML de las sesiones 1 y 2, **se ma
 
 ## Registro de documentación
 
+- **2026-11-15:** sesión 4 creada, portada enlazada, recursos de la letra P localizados en Drive; falta verificar GitHub Pages y transferir MP3 local, si procede.
 - **2026-11-03:** documentación inicial del estado y del procedimiento de actualización segura, sin cambios pedagógicos ni reestructuración de los recursos.
