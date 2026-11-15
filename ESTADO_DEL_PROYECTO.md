@@ -31,6 +31,7 @@ El nombre del repositorio contiene «sesion1» por razones históricas, pero alo
 - Pulso generado por la web: metrónomo didáctico con control de velocidad, independiente de la grabación; no se ha medido el tempo de la polca.
 - Evaluación: registro en el navegador, exportación CSV y ficha imprimible, sin conexión automática con Google Sheets.
 - La identidad de la Pandorga y la Danza de los Enanos se distingue expresamente: el recurso escolar asocia el cuento de la Pandorga con música relacionada con los Enanos; no se propone una danza tradicional auténtica.
+- **Revisión visual 15/11/2026:** siete pantallas rediseñadas con consignas cortas y retos interactivos para el alumnado: huellas con pulso, elección de percusión corporal, dirección por señales, creación e interpretación de una secuencia de cuatro pulsos. Ayuda docente separada, evaluación y ficha mantenidas. MP3 de Drive incrustado, pendiente de comprobación real de permisos y reproducción en GitHub Pages.
 - La navegación, los audios y la impresión requieren comprobación práctica en el aula.
 
 ### Sesión 3 — estado observado
@@ -103,5 +104,6 @@ Las ilustraciones y audios de la raíz, y el HTML de las sesiones 1 y 2, **se ma
 
 ## Registro de documentación
 
+- **2026-11-15 (mejora):** rediseño interactivo y visual de la sesión 4, con menos texto visible y tareas corporales accionables. No afecta a S1–S3.
 - **2026-11-15:** sesión 4 creada, portada enlazada, recursos de la letra P localizados en Drive; falta verificar GitHub Pages y transferir MP3 local, si procede.
 - **2026-11-03:** documentación inicial del estado y del procedimiento de actualización segura, sin cambios pedagógicos ni reestructuración de los recursos.
