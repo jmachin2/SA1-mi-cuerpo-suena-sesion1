@@ -1,6 +1,6 @@
 # Mi cuerpo suena — Música de 1.º de Primaria
 
-Repositorio **oficial de las sesiones de Música** del proyecto de 1.º de Primaria. El nombre histórico del repositorio termina en «sesion1», pero actualmente incluye **tres sesiones**.
+Repositorio **oficial de las sesiones de Música** del proyecto de 1.º de Primaria. El nombre histórico del repositorio termina en «sesion1», pero actualmente incluye **cuatro sesiones**.
 
 **Abrir la web:** https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/
 
@@ -11,6 +11,7 @@ Repositorio **oficial de las sesiones de Música** del proyecto de 1.º de Prima
 | 1 · Mi cuerpo suena | Sonidos corporales, silencio, imitación y ritmos | [Sesión 1](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion1.html) |
 | 2 · Mi cuerpo tiene pulso | Pulso musical, latido y movimiento | [Sesión 2](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion2/) |
 | 3 · Mi voz saluda | Voz hablada y cantada, escucha, eco, canción y evaluación | [Sesión 3](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion3/) |
+| 4 · Caminamos con la Pandorga | Música de La Palma, pulso, movimiento, percusión corporal y evaluación | [Sesión 4](https://jmachin2.github.io/SA1-mi-cuerpo-suena-sesion1/sesion4/) |
 
 ## Documentación para continuar el proyecto
 
@@ -25,6 +26,7 @@ sesion1.html               Sesión 1
 sesion2/index.html         Sesión 2
 sesion3/index.html         Sesión 3
 sesion3/*.mp3              Audios de la sesión 3
+sesion4/index.html         Sesión 4 (audio de Drive, carga MP3 local)
 app.js                     Recursos de la web original
 styles.css                 Estilos de la web original
 *.png y *.mp3              Ilustraciones y audios originales en raíz
