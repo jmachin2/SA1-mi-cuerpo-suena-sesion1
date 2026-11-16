@@ -30,6 +30,8 @@ h2{font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 14px;letter-spacin
 footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px}
 @media(max-width:760px){.sessions{grid-template-columns:1fr}.card{min-height:280px}h2{max-width:90%}}
 @media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+
+.lesson-meta{display:grid;gap:8px;margin:0 0 23px}.lesson-meta p{margin:0;font-size:15px;line-height:1.4;color:#345368}.lesson-meta strong{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#29576a}.teacherPanel{background:#fff;border:1px solid #d9e6e6;border-radius:24px;padding:clamp(22px,3vw,36px);margin-top:32px}.teacherPanel h2{font-size:clamp(25px,3vw,36px);max-width:none}.teacherPanel p{font-size:17px;color:#456073;line-height:1.5}.methodGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:21px 0}.methodGrid div{background:#eef6f1;border-radius:15px;padding:17px 12px;text-align:center;font-weight:850;font-size:15px}.methodGrid span{display:block;font-size:30px;margin-bottom:7px}.teacherLinks{display:flex;gap:12px;flex-wrap:wrap}.teacherLinks a{padding:12px 16px;border:2px solid #2d7670;color:#21655f;text-decoration:none;border-radius:14px;font-weight:850}.prep{padding:15px 18px;background:#f6f6ee;border-radius:14px;margin-top:20px}.prep p{font-size:15px;margin:5px 0}@media(max-width:760px){.methodGrid{grid-template-columns:repeat(2,1fr)}.teacherPanel{margin-top:24px}}
 </style>
 </head>
 <body>
@@ -47,7 +49,7 @@ footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px}
 <h2>Mi cuerpo suena</h2>
 <p class="desc">Exploramos los sonidos del cuerpo, el silencio, la imitación, la creación de ritmos y la música corporal.</p>
 </div>
-<span class="enter">ABRIR SESIÓN 1</span>
+<div class="lesson-meta"><p><strong>Aprendemos</strong> · Sonido corporal y silencio</p><p><strong>Hacemos</strong> · Escuchar, imitar y crear cuatro acciones</p><p><strong>Observamos</strong> · Reconoce y demuestra un sonido o silencio</p></div><span class="enter">ABRIR SESIÓN 1</span>
 </a>
 <a class="card s2" href="sesion2/">
 <span class="num" aria-hidden="true">02</span>
@@ -56,7 +58,7 @@ footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px}
 <h2>Mi cuerpo tiene pulso</h2>
 <p class="desc">Sentimos el latido, descubrimos el pulso musical y aprendemos a mantenerlo juntos con el cuerpo y el movimiento.</p>
 </div>
-<span class="enter">ABRIR SESIÓN 2</span>
+<div class="lesson-meta"><p><strong>Aprendemos</strong> · Pulso estable y velocidad</p><p><strong>Hacemos</strong> · Seguir pulsos con pies y palmas</p><p><strong>Observamos</strong> · Mantiene un pulso con la ayuda recibida</p></div><span class="enter">ABRIR SESIÓN 2</span>
 </a>
 <a class="card s3" href="sesion3/">
 <span class="num" aria-hidden="true">03</span>
@@ -65,14 +67,15 @@ footer{text-align:center;margin-top:32px;color:var(--muted);font-size:14px}
 <h2>Mi voz saluda</h2>
 <p class="desc">Descubrimos la voz como instrumento: hablamos, cantamos, escuchamos, imitamos ecos y creamos pequeños modelos.</p>
 </div>
-<span class="enter">ABRIR SESIÓN 3</span>
+<div class="lesson-meta"><p><strong>Aprendemos</strong> · Voz hablada, cantada y eco</p><p><strong>Hacemos</strong> · Escuchar y responder con voz y gesto</p><p><strong>Observamos</strong> · Imita una frase vocal con intención</p></div><span class="enter">ABRIR SESIÓN 3</span>
 </a>
 <a class="card s4" href="sesion4/">
 <span class="num" aria-hidden="true">04</span>
 <div><div class="tag">Sesión 4</div><h2>Caminamos con la Pandorga</h2>
 <p class="desc">Descubrimos un recurso musical de La Palma, seguimos el pulso con pasos y combinamos movimiento y percusión corporal.</p></div>
-<span class="enter">ABRIR SESIÓN 4</span></a>
+<div class="lesson-meta"><p><strong>Aprendemos</strong> · Escucha de patrimonio musical y pulso</p><p><strong>Hacemos</strong> · Acompañar con cuerpo y crear una secuencia</p><p><strong>Observamos</strong> · Sigue el pulso y describe algo escuchado</p></div><span class="enter">ABRIR SESIÓN 4</span></a>
 <a class="card sc" href="cuaderno/"><span class="num" aria-hidden="true">✎</span><div><div class="tag">Cuaderno de actividades</div><h2>Mi primer cuaderno de Música</h2><p class="desc">Portada y seis fichas para las sesiones 1, 2 y 3. Pauta Montessori de cuatro líneas a 5 mm. Editor de textos, impresión y copia de cambios.</p></div><span class="enter">ABRIR CUADERNO Y EDITOR</span></a></section>
+<section class="teacherPanel" aria-labelledby="teacherHeading"><h2 id="teacherHeading">Una secuencia para aprender música, no solo para mirar la pantalla</h2><p>La web acompaña la actividad real en el aula. La evidencia de aprendizaje se obtiene escuchando, moviéndose, cantando y creando; el docente observa la respuesta y la ayuda necesaria.</p><div class="methodGrid"><div><span aria-hidden="true">👂</span>1 · Escucho</div><div><span aria-hidden="true">👣</span>2 · Practico</div><div><span aria-hidden="true">🎶</span>3 · Creo</div><div><span aria-hidden="true">💬</span>4 · Comparto</div></div><div class="prep"><strong>Antes de empezar</strong><p>Prueba los audios, prepara una señal visible de inicio y parada, deja espacio seguro para el movimiento y da consignas cortas. Durante la música no hables por encima del audio: detén la reproducción para explicar.</p><p>Admite respuestas mediante cuerpo, voz, gesto o dibujo. No uses la escritura como condición para demostrar lo aprendido en Música.</p></div><div class="teacherLinks"><a href="cuaderno/">Abrir cuaderno y editor</a><a href="AUDITORIA_PEDAGOGICA_WEB.md">Ver auditoría y plan de mejora</a></div></section>
 <footer>CEIP Camino Largo · Música · Primer ciclo</footer>
 </main>
 </body>
