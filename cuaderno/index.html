@@ -76,7 +76,7 @@ const picCache={};let doc=JSON.parse(JSON.stringify(defaults));let edits={};let 
 try{const raw=JSON.parse(localStorage.getItem("musica_cuaderno_editorial_v2")||"null");if(raw&&raw.items?.length===6){doc=raw.items;Object.assign(terms,raw.terms||{})}}catch(e){}
 const $=id=>document.getElementById(id);
 const escaped=value=>String(value??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
-function t(i,k){return '<span class="editable" data-ix="'+i+'" data-field="'+k+'">'+escaped(doc[i][k])+'</span>'}
+function t(i,k){const value=k.startsWith("tasks.")?doc[i].tasks[Number(k.slice(6))]:doc[i][k];return '<span class="editable" data-ix="'+i+'" data-field="'+k+'">'+escaped(value)+'</span>'}
 function task(i,n,html){return '<section class="task"><div class="task-head"><span class="task-n">'+n+'</span><span class="task-label">'+t(i,"tasks."+ (n-1))+'</span></div>'+html+'</section>'}
 function symbol(key,label,select=true){return '<div class="pic">'+(select?'<span class="select-circle"></span>':'')+'<div data-pictogram="'+key+'" class="pic-content"><div class="fallback">'+escaped(label)+'</div></div><span class="pic-name">'+escaped(label)+'</span></div>'}
 function tiny(key,label){return '<div class="tiny-pic"><div data-pictogram="'+key+'"><div class="fallback">'+escaped(label)+'</div></div><span>'+escaped(label)+'</span></div>'}
@@ -92,10 +92,10 @@ case "echo":return task(i,1,'<div class="speech"><div>MODELO<strong>CU-CÚ</stro
 }}
 function page(i){let d=doc[i];return '<section class="sheet"><header class="page-header"><span class="school">CEIP CAMINO LARGO · MÚSICA</span><span class="folio">0'+(i+1)+' / 06</span></header><div class="chapter">'+t(i,"chapter")+' · SESIÓN '+d.session+'</div><h1 class="title">'+t(i,"title")+'</h1><p class="subtitle">'+t(i,"objective")+'</p><div class="name">Nombre: ______________________________ <span>Fecha: __________</span></div>'+body(i)+'<footer class="footer"><span>MI CUERPO SUENA · 1.º DE PRIMARIA</span><span class="copyright">ARASAAC · Sergio Palao · Gobierno de Aragón · CC BY-NC-SA</span></footer></section>'}
 function cover(){return '<section class="sheet"><div class="cover"><span class="school">CEIP CAMINO LARGO · CURSO 2026–2027</span><div class="course">MÚSICA · 1.º DE PRIMARIA</div><h1 class="cover-title">Mi primer<br>cuaderno de<br>Música</h1><div class="bigcircle"><div class="mini" data-pictogram="aplaudir">PALMAS</div><div class="mini" data-pictogram="cantar">CANTAR</div></div><p class="cover-script">Escucho · Me muevo · Creo</p><div class="child">Mi nombre: _____________________</div><small>SA1 · MI CUERPO SUENA · SESIONES 1, 2 Y 3</small><small>Imágenes: ARASAAC · Sergio Palao · Gobierno de Aragón · CC BY-NC-SA</small></div></section>'}
-function render(){ $("book").innerHTML=cover()+doc.map((_,i)=>page(i)).join("");loadPictograms(); }
+let pictogramReady=Promise.resolve();function render(){ $("book").innerHTML=cover()+doc.map((_,i)=>page(i)).join("");pictogramReady=loadPictograms(); }
 async function lookup(key){if(picCache[key])return picCache[key];const keyword=terms[key]||key;const endpoints=["https://api.arasaac.org/v1/pictograms/es/bestsearch/"+encodeURIComponent(keyword),"https://api.arasaac.org/v1/pictograms/es/search/"+encodeURIComponent(keyword)];
 for(const url of endpoints){try{const res=await fetch(url);if(!res.ok)continue;const list=await res.json();const record=Array.isArray(list)?list[0]:null;if(record&&record._id){picCache[key]=String(record._id);return picCache[key]}}catch(e){}}return null}
-async function loadPictograms(){const keys=[...new Set([...document.querySelectorAll("[data-pictogram]")].map(el=>el.dataset.pictogram))];await Promise.all(keys.map(async key=>{const id=await lookup(key);if(!id)return;document.querySelectorAll('[data-pictogram="'+key+'"]').forEach(el=>{const img=document.createElement("img");img.src="https://static.arasaac.org/pictograms/"+id+"/"+id+"_300.png";img.alt=terms[key]||key;img.loading="eager";img.addEventListener("error",()=>img.remove());el.replaceChildren(img)})}));}
+async function loadPictograms(){const keys=[...new Set([...document.querySelectorAll("[data-pictogram]")].map(el=>el.dataset.pictogram))];await Promise.all(keys.map(async key=>{const id=await lookup(key);if(!id)return;document.querySelectorAll('[data-pictogram="'+key+'"]').forEach(el=>{const img=document.createElement("img");img.src="https://static.arasaac.org/pictograms/"+id+"/"+id+"_300.png";img.alt=terms[key]||key;img.loading="eager";img.addEventListener("error",()=>{el.replaceChildren(Object.assign(document.createElement("span"),{className:"fallback",textContent:terms[key]||key}))});el.replaceChildren(img)})}));}
 function saved(){return {version:2,items:doc,terms:terms}}
 function save(){try{localStorage.setItem("musica_cuaderno_editorial_v2",JSON.stringify(saved()));$("status").textContent="Cambios guardados · Playwrite ES · 5 mm"}catch(e){$("status").textContent="Exporta para conservar los cambios"}}
 function populate(){const picSel=$("picKey");picSel.replaceChildren();Object.keys(terms).forEach(k=>{const opt=document.createElement("option");opt.value=k;opt.textContent=k;picSel.append(opt)});$("picTerm").value=terms[picSel.value]||"";const selector=$("editPage");selector.replaceChildren();doc.forEach((d,i)=>{const o=document.createElement("option");o.value=i;o.textContent="Ficha "+(i+1)+" · "+d.title;selector.append(o)});selector.value=String(pageIndex);fields();}
@@ -114,6 +114,20 @@ $("teacherBtn").onclick=()=>$("teacherModal").classList.add("show");$("closeTeac
 $("saveBtn").onclick=save;
 $("exportBtn").onclick=()=>{const blob=new Blob([JSON.stringify(saved(),null,2)],{type:"application/json"});const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="cuaderno_musica_editorial_edicion.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)};
 $("importFile").onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.version!==2||!Array.isArray(data.items)||data.items.length!==6)throw Error("Archivo incompatible");doc=data.items;Object.assign(terms,data.terms||{});save();render();populate()}catch(err){alert(err.message)}};
-$("printBtn").onclick=async()=>{const pics=[...document.querySelectorAll("[data-pictogram]")];if(pics.some(el=>!el.querySelector("img"))){$("status").textContent="Aviso: faltan pictogramas de ARASAAC; revisa la conexión antes de imprimir."}else{$("status").textContent="Imprime al 100 % para conservar la pauta de 5 mm"};await document.fonts?.ready;window.print()};
+$("printBtn").onclick=async()=>{
+$("status").textContent="Preparando pictogramas y tipografía para imprimir…";
+await pictogramReady;
+await document.fonts?.ready;
+await Promise.all([...document.querySelectorAll("[data-pictogram] img")].map(img=>img.decode().catch(()=>{})));
+const missing=[...document.querySelectorAll("[data-pictogram]")].filter(el=>!el.querySelector("img")).length;
+const fontOK=document.fonts?document.fonts.check('16px "Playwrite ES"'):true;
+if(missing||!fontOK){
+const warning=(missing?"Faltan "+missing+" imágenes ARASAAC. ":"")+(!fontOK?"No se ha cargado Playwrite ES. ":"")+"La impresión puede salir incompleta. ¿Quieres imprimir de todos modos?";
+$("status").textContent=warning;
+if(!confirm(warning))return;
+}
+$("status").textContent="Imprime en A4 a escala 100 %, sin ajustar a página";
+window.print();
+};
 render();
 </script></body></html>
