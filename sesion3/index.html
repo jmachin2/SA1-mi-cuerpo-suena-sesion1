@@ -77,11 +77,11 @@ body.evalPrinting #printEvalArea{display:block!important;font-family:Arial,sans-
 <section class="slide"><div class="listen"><div><span class="time">12 minutos</span><div class="ey">Escuchamos · El Zurrón de las Letras</div><h2>Una sola misión</h2><p class="prompt">Descubre cuándo aparece una voz cantando.</p><div class="mission">1 · ¿Qué escuchas?</div><div class="mission">2 · ¿Habla o canta?</div><div class="mission">3 · ¿Cómo lo sabes?</div><div class="driveAudios">
   <div class="audioTrack primary">
     <div class="audioTrackHead"><div><b>1 · HABLO O CANTO</b><div class="trackPrompt">Primera escucha: identifica cuándo la voz habla y cuándo canta.</div></div><span class="audioTag">ESCUCHA GUIADA</span></div>
-    <button class="audioPlay" type="button" data-audio="audioHablo" aria-pressed="false">▶ REPRODUCIR · HABLO O CANTO</button><audio id="audioHablo" class="nativePlayer" preload="auto" playsinline><source src="./hablo-o-canto.mp3" type="audio/mpeg">Tu navegador no puede reproducir este audio.</audio><div class="audioMeta"><span class="audioStatus" data-status-for="audioHablo">Preparado</span><span class="audioTime" data-time-for="audioHablo">0:00 / --:--</span></div><input class="audioSeek" data-seek-for="audioHablo" type="range" min="0" max="100" value="0" step="0.1" aria-label="Posición del audio Hablo o canto">
+    <button class="audioPlay" type="button" data-audio="audioHablo" aria-pressed="false">▶ REPRODUCIR · HABLO O CANTO</button><audio id="audioHablo" class="nativePlayer" preload="metadata" playsinline><source src="./hablo-o-canto.mp3" type="audio/mpeg">Tu navegador no puede reproducir este audio.</audio><div class="audioMeta"><span class="audioStatus" data-status-for="audioHablo" aria-live="polite">Preparado</span><span class="audioTime" data-time-for="audioHablo">0:00 / --:--</span></div><input class="audioSeek" data-seek-for="audioHablo" type="range" min="0" max="100" value="0" step="0.1" aria-label="Posición del audio Hablo o canto">
   </div>
   <div class="audioTrack transfer">
     <div class="audioTrackHead"><div><b>2 · RAP DE LA SEMILLA</b><div class="trackPrompt">Segundo reto: descubre los cambios entre rap hablado y partes cantadas.</div></div><span class="audioTag">RETO FINAL</span></div>
-    <button class="audioPlay" type="button" data-audio="audioRap" aria-pressed="false">▶ REPRODUCIR · RAP DE LA SEMILLA</button><audio id="audioRap" class="nativePlayer" preload="auto" playsinline><source src="./rap-de-la-semilla.mp3" type="audio/mpeg">Tu navegador no puede reproducir este audio.</audio><div class="audioMeta"><span class="audioStatus" data-status-for="audioRap">Preparado</span><span class="audioTime" data-time-for="audioRap">0:00 / --:--</span></div><input class="audioSeek" data-seek-for="audioRap" type="range" min="0" max="100" value="0" step="0.1" aria-label="Posición del audio Rap de la semilla">
+    <button class="audioPlay" type="button" data-audio="audioRap" aria-pressed="false">▶ REPRODUCIR · RAP DE LA SEMILLA</button><audio id="audioRap" class="nativePlayer" preload="metadata" playsinline><source src="./rap-de-la-semilla.mp3" type="audio/mpeg">Tu navegador no puede reproducir este audio.</audio><div class="audioMeta"><span class="audioStatus" data-status-for="audioRap" aria-live="polite">Preparado</span><span class="audioTime" data-time-for="audioRap">0:00 / --:--</span></div><input class="audioSeek" data-seek-for="audioRap" type="range" min="0" max="100" value="0" step="0.1" aria-label="Posición del audio Rap de la semilla">
   </div>
 </div>
 <div class="row">
@@ -119,8 +119,8 @@ body.evalPrinting #printEvalArea{display:block!important;font-family:Arial,sans-
         <div class="cucoSteps">1 · Escuchamos el modelo.<br>2 · El maestro canta «cucú».<br>3 · Los niños responden después, como un eco.<br>4 · Cambiamos los papeles.</div>
       </div>
       <div>
-        <div class="cucoTrack"><b>1 · Modelo con voz e instrumentos</b><small>Voz, xilófono y metalófono · 42 s</small><audio controls preload="metadata" id="cucoModelo" src="./el-cuco-modelo.mp3">Tu navegador no puede reproducir el MP3.</audio></div>
-        <div class="cucoTrack"><b>2 · Canción cantada</b><small>«El cuco en el pinar» · 1 min 47 s</small><audio controls preload="metadata" id="cucoCancion" src="./el-cuco-cancion.mp3">Tu navegador no puede reproducir el MP3.</audio></div>
+        <div class="cucoTrack"><b>1 · Modelo con voz e instrumentos</b><small>Voz, xilófono y metalófono · 42 s</small><audio controls preload="metadata" aria-label="Modelo de eco del cuco" id="cucoModelo" src="./el-cuco-modelo.mp3">Tu navegador no puede reproducir el MP3.</audio></div>
+        <div class="cucoTrack"><b>2 · Canción cantada</b><small>«El cuco en el pinar» · 1 min 47 s</small><audio controls preload="metadata" aria-label="Canción del cuco" id="cucoCancion" src="./el-cuco-cancion.mp3">Tu navegador no puede reproducir el MP3.</audio></div>
         <p class="cucoSteps">Pausa la grabación después de cada frase y deja que responda el grupo. No hace falta cantar al mismo tiempo que el modelo.</p>
       </div>
     </div>
@@ -214,8 +214,9 @@ document.querySelectorAll('.audioPlay').forEach(btn=>{
   a.addEventListener('pause',sync);
   a.addEventListener('ended',sync);
   a.addEventListener('canplay',()=>{card?.classList.remove('error');sync()});
-  a.addEventListener('error',()=>{card?.classList.add('error');if(st)st.textContent='Error al cargar el MP3.';sync()});
+  a.addEventListener('error',()=>{card?.classList.add('error');if(st)st.textContent='No se ha podido reproducir. Abre el archivo o usa un modelo vocal en directo.';sync()});
   a.load();
+  if(card){const link=document.createElement("a");link.href=a.querySelector("source")?.getAttribute("src")||a.currentSrc;link.textContent="Abrir MP3 directamente";link.target="_blank";link.rel="noopener";link.style.cssText="display:inline-block;margin-top:5px;font-size:12px;font-weight:800;color:#215e76";card.append(link)}
   sync();
 });
 
@@ -319,4 +320,12 @@ get('evalPrintStudent').addEventListener('click',()=>{document.body.classList.ad
 window.addEventListener('afterprint',()=>document.body.classList.remove('evalPrinting'));
 })();
 
+// Recuperación de errores en los reproductores de eco.
+["cucoModelo","cucoCancion"].forEach(id=>{
+const el=document.getElementById(id);if(!el)return;
+const status=document.createElement("p");status.style.cssText="font-size:12px;color:#4d6675;margin:6px 0";
+status.setAttribute("role","status");el.insertAdjacentElement("afterend",status);
+const fallback=document.createElement("a");fallback.href=el.getAttribute("src");fallback.target="_blank";fallback.rel="noopener";fallback.textContent="Abrir MP3 en otra pestaña";fallback.style.cssText="font-size:12px;font-weight:800;color:#215e76";status.after(fallback);
+el.addEventListener("error",()=>status.textContent="No se pudo cargar el audio. Prueba el enlace o canta el eco con el grupo.");
+});
 </script></body></html>
